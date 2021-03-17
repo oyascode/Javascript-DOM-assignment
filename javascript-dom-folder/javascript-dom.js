@@ -45,6 +45,12 @@ lists[1].textContent = 'List 2';
 lists[2].textContent = 'List 3';
 lists[3].textContent = 'List 4';
 
+lists[0].style.color = '#660000';
+lists[1].style.color = '#660000';
+lists[2].style.color = '#660000';
+lists[3].style.color = '#660000';
+
+
 // QUERYSELECTOR //
 
 // To change add items to add list
@@ -65,7 +71,7 @@ titles[1].textContent = 'Lists';
 const oddlist = documenet.querySelectorAll('li:nth-child(odd)');
 const evenlist = document.querySelectorAll('li:nth-child(even)');
 
-for(let index = 0; index < oddlist.length; index++) {
+for(let i = 0; index < oddlist.length; index++) {
   oddlist[index].style.backgroundColor = '#f4f4f4';
   evenlist[index].style.backgroundColor = '#ccc';
 }
