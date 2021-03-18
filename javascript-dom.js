@@ -62,11 +62,16 @@ const changebtn = document.querySelector('.btn');
 changebtn.value = 'Send';
 changebtn.style.backgroundColor = '#660000';
 
+const clearList = document.querySelector('.clear');
+clearList.value = 'Clear Task';
+clearList.style.backgroundColor = '#660000';
+
 // QUERYSELECTORALL //
 
 // Select all h2 elements with a class of title and change items to lists
 const titles = document.querySelectorAll('.title');
 titles[1].textContent = 'Lists';
+titles.style.color = '#660000'
 
 const oddlist = document.querySelectorAll('li:nth-child(odd)');
 const evenlist = document.querySelectorAll('li:nth-child(even)');
