@@ -18,7 +18,7 @@
 const changeBackground = document.getElementById('main-header');
 
 changeBackground.style.backgroundColor = '#660000';
-changeBackground.style.borderBottom = '2px solid #333'
+changeBackground.style.borderBottom = '2px solid #333';
 // console.log(changeBackground);
 
 // To change the title of the header from item lister to To-do List
@@ -68,19 +68,19 @@ changebtn.style.backgroundColor = '#660000';
 const titles = document.querySelectorAll('.title');
 titles[1].textContent = 'Lists';
 
-const oddlist = documenet.querySelectorAll('li:nth-child(odd)');
+const oddlist = document.querySelectorAll('li:nth-child(odd)');
 const evenlist = document.querySelectorAll('li:nth-child(even)');
 
-for(let i = 0; index < oddlist.length; index++) {
+for(let index = 0; index < oddlist.length; index++) {
   oddlist[index].style.backgroundColor = '#f4f4f4';
-  evenlist[index].style.backgroundColor = '#ccc';
+  evenlist[index].style.backgroundColor = '#eee';
 }
 
 //TRAVERSING THE DOM
 
 //parent node
 
-const listItem = document.querySelector('#items');
+// const listItem = document.querySelector('#items');
 
-console.log(listItem.parentNode);
-listItems.parentNode.style.backgroundColor = '#f4f4f4';
+// console.log(listItem.parentNode);
+// listItems.parentNode.style.backgroundColor = '#f4f4f4';
