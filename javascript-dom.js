@@ -1,20 +1,9 @@
 
-
-
-
-// EXAMINE THE DOCUMENT OBJECT //
-
-// console.log(document.doctype);
-// console.log(document.head);
-// console.log(document.body);
-// console.log(document.all);
-// console.log(document.all[10]);
-// console.log(document.links);
-// console.log(document.images);
+//MODIFYING THE UI
 
 // GETELEMENTBYID //
 
-// To change the background of the main header to red
+// To change the background of the main header to red and add border bottom
 const changeBackground = document.getElementById('main-header');
 
 changeBackground.style.backgroundColor = '#660000';
@@ -25,31 +14,15 @@ changeBackground.style.borderBottom = '2px solid #333';
 const changeTitle = document.getElementById('header-title');
 
 changeTitle.innerText = 'To-do List';
-changeTitle.style.fontWeight = '600';
-changeTitle.style.textAlign = 'center';
+changeTitle.style.fontWeight = '600';// makes it bolder
+changeTitle.style.textAlign = 'center';// centers the header title
 // console.log(changeTitle);
 
+//Change the background of the card and add some box shadow
 const cardBackground = document.getElementById('main');
 
 cardBackground.style.backgroundColor = '#ccc';
 cardBackground.style.boxShadow = '2px 5px 15px 2px #555';
-
-// GETELEMENTSBYCLASSNAME // WORKS AS SAME AS GETELEMENTSBYTAGNAME 
-
-// Cnange card title from Add Items to Add List
-const lists = document.getElementsByClassName('list-group-item');
-
-//like arrays, use indexing to access items and change them to list
-lists[0].textContent = 'List 1';
-lists[1].textContent = 'List 2';
-lists[2].textContent = 'List 3';
-lists[3].textContent = 'List 4';
-
-lists[0].style.color = '#660000';
-lists[1].style.color = '#660000';
-lists[2].style.color = '#660000';
-lists[3].style.color = '#660000';
-
 
 // QUERYSELECTOR //
 
@@ -57,35 +30,42 @@ lists[3].style.color = '#660000';
 const changeCardTitle = document.querySelector('.title');
 changeCardTitle.textContent = 'Add List';
 
-//change submit button to send and change its background color
+//change submit button to Poulate and change its background color
 const changebtn = document.querySelector('.btn');
-changebtn.value = 'Send';
+changebtn.value = 'Populate';
 changebtn.style.backgroundColor = '#660000';
 
+//change clear task button to send and change its background color
 const clearList = document.querySelector('.clear');
 clearList.value = 'Clear Task';
 clearList.style.backgroundColor = '#660000';
 
-// QUERYSELECTORALL //
+// ADD SOME FUNCTIONALITIES
 
-// Select all h2 elements with a class of title and change items to lists
-const titles = document.querySelectorAll('.title');
-titles[1].textContent = 'Lists';
-titles.style.color = '#660000'
+// DYNAMICALLY ADD ITEMS
+// Get a reference to the input, submit and the list
+const inputField = document.getElementById('inputItem');
+const submitButton = document.querySelector('button');
+const unorderedList = document.querySelector('ul');
 
-const oddlist = document.querySelectorAll('li:nth-child(odd)');
-const evenlist = document.querySelectorAll('li:nth-child(even)');
+// Add eventListener
+submitButton.addEventListener('click', (e) => {
+	let myItem = inputField.value;
+	inputField.value = '';
 
-for(let index = 0; index < oddlist.length; index++) {
-  oddlist[index].style.backgroundColor = '#f4f4f4';
-  evenlist[index].style.backgroundColor = '#eee';
-}
+	const listItem = document.createElement('li');
+	listItem.className = 'list-group-item'
+	listItem.textContent = myItem;
 
-//TRAVERSING THE DOM
+	unorderedList.appendChild(listItem);
 
-//parent node
+	const clearTask = document.getElementById('clearTask');
 
-// const listItem = document.querySelector('#items');
+clearTask.addEventListener('click', (e) => {
+	unorderedList.removeChild(listItem);
+	// e.preventDefault();
+} )
 
-// console.log(listItem.parentNode);
-// listItems.parentNode.style.backgroundColor = '#f4f4f4';
+	inputField.focus();
+	e.preventDefault();
+});
