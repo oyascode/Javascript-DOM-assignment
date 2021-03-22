@@ -32,7 +32,7 @@ changeCardTitle.textContent = 'Add List';
 
 //change submit button to Poulate and change its background color
 const changebtn = document.querySelector('.btn');
-changebtn.value = 'Populate';
+changebtn.innerText = 'Populate';
 changebtn.style.backgroundColor = '#660000';
 
 //change clear task button to send and change its background color
@@ -54,16 +54,27 @@ submitButton.addEventListener('click', (e) => {
 	inputField.value = '';
 
 	const listItem = document.createElement('li');
-	listItem.className = 'list-group-item'
-	listItem.textContent = myItem;
+	const deleteBtn = document.createElement('button');
 
+	deleteBtn.style.backgroundColor = '#660000';
+
+	listItem.className = 'list-group-item d-flex'
+	deleteBtn.className = 'btn btn-danger ml-5'
+	listItem.textContent = myItem;
+	deleteBtn.textContent = 'X'
+
+	listItem.appendChild(deleteBtn);
 	unorderedList.appendChild(listItem);
+
+	deleteBtn.addEventListener('click', (e) => {
+		unorderedList.removeChild(listItem)
+	})
 
 	const clearTask = document.getElementById('clearTask');
 
 clearTask.addEventListener('click', (e) => {
 	unorderedList.removeChild(listItem);
-	// e.preventDefault();
+	
 } )
 
 	inputField.focus();
