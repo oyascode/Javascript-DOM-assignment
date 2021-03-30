@@ -58,8 +58,8 @@ submitButton.addEventListener('click', (e) => {
 
 	deleteBtn.style.backgroundColor = '#660000';
 
-	listItem.className = 'list-group-item d-flex'
-	deleteBtn.className = 'btn btn-danger ml-5'
+	listItem.className = 'list-group-item'
+	deleteBtn.className = 'btn btn-danger float-right '
 	listItem.textContent = myItem;
 	deleteBtn.textContent = 'X'
 
